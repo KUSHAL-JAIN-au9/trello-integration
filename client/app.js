@@ -1,4 +1,5 @@
 console.log("connected");
+document.getElementById("due").placeholder = "";
 
 document
   .getElementById("trelloCardForm")
@@ -25,6 +26,12 @@ document
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        document.getElementById("name").value = "";
+        document.getElementById("desc").value = "";
+        document.getElementById("due").value = "";
+        document.getElementById("start").value = "";
+        console.log(data);
+      })
       .catch((error) => console.error("Error:", error));
   });
