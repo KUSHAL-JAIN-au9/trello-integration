@@ -11,11 +11,8 @@ document
     var start = document.getElementById("start").value;
 
     console.log("values", name, desc, due, start);
-    var key = "yourKey"; // Replace with Trello key
-    var token = "yourToken"; // Replace with your Trello API token
-    var idList = "idList"; // Replace with the ID of the list where the card will be created
 
-    fetch(`https://api.trello.com/1/cards?key=${key}&token=${token}`, {
+    fetch(`https://trello-addcard.onrender.com/create-card`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +22,6 @@ document
         desc: desc,
         due: due,
         start: start,
-        idList: idList,
       }),
     })
       .then((response) => response.json())
